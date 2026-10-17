@@ -1,4 +1,4 @@
-"""Compare a poc.py run log with make_demo_video.py labels. uv run eval_video.py out.csv demo/x_labels.csv"""
+"""Compare a detect.py run log with make_demo_video.py labels. uv run eval_video.py out.csv demo/x_labels.csv"""
 import csv, sys, collections
 log = {int(r["frame"]): r for r in csv.DictReader(open(sys.argv[1]))}
 lab = list(csv.DictReader(open(sys.argv[2])))

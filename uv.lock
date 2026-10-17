@@ -1542,7 +1542,7 @@ wheels = [
 ]
 
 [[package]]
-name = "proto"
+name = "anomaly-detection"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

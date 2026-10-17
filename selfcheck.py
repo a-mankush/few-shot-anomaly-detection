@@ -14,7 +14,7 @@ good = unit(base + .05 * rng.normal(size=base.shape)); bad = good.copy(); bad[7]
 sg, sb = P.score(good, bank, 7)[0], P.score(bad, bank, 7)[0]
 assert sg <= thr < sb, (sg, thr, sb)
 print("ok")
-# ticket 12: automatic threshold
+# automatic threshold
 loo = [0.4, 0.5, 0.6]
 assert abs(P.auto_threshold(loo, "dino448", floor=0.0) - (np.mean(loo) + 3 * np.std(loo))) < 1e-9
 assert P.auto_threshold([0.01, 0.01, 0.01], "dino448") == P.FLOOR                 # floor wins

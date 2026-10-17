@@ -4,8 +4,8 @@ Quick start on Windows (PowerShell)
 2. In this folder:
      uv sync --no-dev                      (runtime deps only; skips torch. The ONNX model is already in models\)
 3. Enrol good frames from the demo video, then run:
-     uv run poc.py enroll --from-video demo\bottle.mp4 --frames 0-6.4s --n 8
-     uv run poc.py run demo\bottle.mp4 --out out.mp4 --log out.csv
+     uv run detect.py enroll --from-video demo\bottle.mp4 --frames 0-6.4s --n 8
+     uv run detect.py run demo\bottle.mp4 --out out.mp4 --log out.csv
 4. Score against labels:
      uv run eval_video.py out.csv demo\bottle_labels.csv
 

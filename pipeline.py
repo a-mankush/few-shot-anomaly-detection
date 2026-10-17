@@ -1,4 +1,4 @@
-"""PROTOTYPE (throwaway): DINOv2 patch-kNN anomaly check. See README.md."""
+"""Few-shot anomaly detection: DINOv2 patch features + nearest-neighbour scoring. See README.md."""
 import glob, os, time
 import cv2, numpy as np, onnxruntime as ort
 
@@ -49,7 +49,7 @@ class OnnxWrn(OnnxDino):
 def make_backend(name="dino448", layer="last"):
     if name.startswith("dino"): return OnnxDino(int(name[4:]), layer)
     if name.startswith("wrn"): return OnnxWrn(int(name[3:]), layer)
-    raise ValueError(name)  # ponytail: add "hailo" here
+    raise ValueError(name)  # new backends (e.g. an accelerator) plug in here
 
 
 def nn_dist(q, bank, chunk=2048):
@@ -108,9 +108,9 @@ def enroll(folder, backend):
     return dict(bank=np.concatenate(feats), feats=feats, thr=thr, loo=loo, t_extract=t_ext, t_total=time.perf_counter() - t)
 
 
-# --- video POC additions (ticket 12) ---
-K_STD = 3.0                              # ticket 10: mean + 3*std of LOO scores
-FALLBACKS = {"dino": 0.93, "wrn": 0.68}  # N<3 fixed thresholds per backend family (ticket 10)
+# --- video scoring ---
+K_STD = 3.0                              # mean + 3*std of LOO scores
+FALLBACKS = {"dino": 0.93, "wrn": 0.68}  # N<3 fixed thresholds per backend family
 
 
 def loo_scores(feats_list):

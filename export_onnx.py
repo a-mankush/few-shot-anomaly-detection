@@ -1,4 +1,4 @@
-# PROTOTYPE: one-time export of DINOv2 ViT-S/14 to ONNX (needs torch). Outputs [last, mid] patch tokens.
+# One-time export of DINOv2 ViT-S/14 to ONNX (needs torch). Outputs [last, mid] patch tokens.
 import sys, torch
 class M(torch.nn.Module):
     def __init__(s, m): super().__init__(); s.m = m

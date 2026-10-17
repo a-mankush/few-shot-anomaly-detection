@@ -1,4 +1,4 @@
-# PROTOTYPE: one-time export of WRN50-2 (PatchCore-style layer2+layer3 patch features) to ONNX. uv run export_resnet.py [res...]
+# One-time export of WRN50-2 (PatchCore-style layer2+layer3 patch features) to ONNX. uv run export_resnet.py [res...]
 import sys, torch, torch.nn.functional as F, torchvision as tv
 class W(torch.nn.Module):
     def __init__(s):

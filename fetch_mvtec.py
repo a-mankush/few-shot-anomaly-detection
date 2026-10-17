@@ -1,4 +1,4 @@
-# PROTOTYPE: pull a few MVTec-AD categories (CC BY-NC-SA, eval only) from the open Voxel51 mirror.
+# Pull a few MVTec-AD categories (CC BY-NC-SA, eval only) from the open Voxel51 mirror.
 import json, sys, urllib.request, pathlib
 from concurrent.futures import ThreadPoolExecutor
 B = "https://huggingface.co/datasets/Voxel51/mvtec-ad/resolve/main/"

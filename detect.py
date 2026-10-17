@@ -1,4 +1,4 @@
-"""POC: enrol a Reference set, then run the detector over a video. uv run poc.py enroll|run --help"""
+"""Enrol a reference set, then run the detector over a video. uv run detect.py enroll|run --help"""
 import argparse, csv, json, os, time
 import cv2, numpy as np
 import pipeline as P
