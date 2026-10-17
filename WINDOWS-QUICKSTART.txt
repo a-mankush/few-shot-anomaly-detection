@@ -1,0 +1,13 @@
+Quick start on Windows (PowerShell)
+===================================
+1. Install uv:   powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+2. In this folder:
+     uv sync --no-dev                      (runtime deps only; skips torch. The ONNX model is already in models\)
+3. Enrol good frames from the demo video, then run:
+     uv run poc.py enroll --from-video demo\bottle.mp4 --frames 0-6.4s --n 8
+     uv run poc.py run demo\bottle.mp4 --out out.mp4 --log out.csv
+4. Score against labels:
+     uv run eval_video.py out.csv demo\bottle_labels.csv
+
+demo\bottle_out.mp4 is an example of the expected output.
+Only needed if you want to re-export models or open the notebook: uv sync (full, installs torch).

@@ -1,0 +1,22 @@
+[project]
+name = "proto"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.5.4",
+    "onnxruntime>=1.31.0",
+    "opencv-python-headless>=5.0.0.93",
+    "pillow>=12.3.0",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.4.0",
+    "matplotlib>=3.11.2",
+    "nbconvert>=7.17.2",
+    "nbformat>=5.11.1",
+    "onnx>=1.23.2",
+    "pandas>=3.0.6",
+    "torch>=2.14.1",
+    "torchvision>=0.29.1",
+]

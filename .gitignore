@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+data/
+# regenerated: `uv run export_onnx.py` (85 MB, over GitHub's comfort limit)
+models/*.onnx
+# derived from MVTec-AD (CC BY-NC-SA); rebuild with fetch_mvtec.py + make_demo_video.py
+demo/*.mp4
