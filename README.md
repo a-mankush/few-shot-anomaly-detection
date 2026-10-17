@@ -4,6 +4,10 @@ Flags defective, wrong or missing parts from a handful of good reference images,
 
 How it works: DINOv2 ViT-S/14 (448 px) turns each frame into patch features. Each patch is scored by its nearest-neighbour distance to the enrolled reference bank, and the frame score is the worst patch. The threshold is automatic: mean + 3·std of leave-one-out scores over the reference set (a fixed fallback applies below 3 images). The model is exported to ONNX, so runtime needs only onnxruntime, OpenCV and NumPy; PyTorch is only needed for the export.
 
+![Left: a good bottle scores 0.509, under the 0.776 threshold, and passes. Right: a bottle with contamination scores 1.092 and fails, with the heatmap on the defect.](docs/example.png)
+
+*Output frames from the demo run. Left: a good part passes. Right: a contaminated part fails, and the heatmap shows where. Images are from MVTec-AD (CC BY-NC-SA 4.0, non-commercial use).*
+
 ## Quick start
 
     uv sync && uv run export_onnx.py                                       # 1. setup (one-time ONNX export; torch is dev-only)
